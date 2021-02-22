@@ -1,6 +1,7 @@
-=======
+=========
 oorlu CLI
-=======
+=========
+
 .. image:: https://oor.lu/static/images/fb.png
 
 .. image:: https://img.shields.io/pypi/v/oorlu-cli.svg
@@ -45,10 +46,11 @@ No config needed.
 Usage
 -----
 ``Usage: oorlu [OPTIONS] [LONG_URL*]```
-*\*Long url max length: 500.*
 
 --limit=int          Set click limit for URL (default: no limit)
 -h, --help           Show this message and exit.
+
+*\* url max length: 500.*
 
 **Example Usage:**
 
@@ -56,7 +58,6 @@ Usage
 
     oorlu google.com
     oorlu www.clicklimit2.com -l 2
-
 
 Troubleshooting
 ---------------
@@ -76,4 +77,3 @@ Credits
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`johanvergeer/cookiecutter-poetry`: https://github.com/johanvergeer/cookiecutter-poetry
-
