@@ -8,7 +8,8 @@ import requests
 from click.testing import CliRunner
 
 from oorlu_cli import cli
-from oorlu_cli.validator import validate_long_url, ValidationError
+from oorlu_cli.validator import ValidationError, validate_long_url
+
 
 @pytest.mark.parametrize(
     "long_url, fail_expected",
@@ -25,7 +26,8 @@ from oorlu_cli.validator import validate_long_url, ValidationError
 def test_validate_long_url(long_url, fail_expected):
     with pytest.raises(ValidationError) if fail_expected else nullcontext():
         validate_long_url(long_url)
- 
+
+
 def test_command_line_interface(monkeypatch):
     """Test the CLI."""
     runner = CliRunner()
@@ -33,7 +35,7 @@ def test_command_line_interface(monkeypatch):
     no_argument_result = runner.invoke(cli.main)
     assert no_argument_result.exit_code == 0
     assert help_text in no_argument_result.output
-    
+
     help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
     assert help_text in help_result.output
@@ -45,7 +47,7 @@ def test_command_line_interface(monkeypatch):
     wrong_limit_result = runner.invoke(cli.main, ["google.com", "-l", "-1"])
     assert wrong_limit_result.exit_code == 2
     assert "Invalid value for limit" in wrong_limit_result.output
-    
+
     def mock_res_error(*args, **kwargs):
         raise requests.exceptions.RequestException
 
@@ -53,4 +55,3 @@ def test_command_line_interface(monkeypatch):
     connection_error_result = runner.invoke(cli.main, ["test.com"])
     assert connection_error_result.exit_code == 1
     assert "API / Connection error - please see if https://oor.lu works" in connection_error_result.output
-
