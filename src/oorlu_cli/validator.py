@@ -8,6 +8,10 @@ import re
 from urllib.parse import urlsplit, urlunsplit
 
 
+class ValidationError(Exception):
+    pass
+
+
 def check_and_update_url_schema(url):
     """Credit : https://stackoverflow.com/questions/49983328
     I realize this is quite cheap.
@@ -22,12 +26,10 @@ def validate_long_url(value):
     Append schema if needed and validate.
     """
     long_url = check_and_update_url_schema(value)
+    if len(long_url) >= 500:
+        raise ValidationError("Length of URL should be below 500 chars")
     URLValidator()(long_url)
     return long_url
-
-
-class ValidationError(Exception):
-    pass
 
 
 class RegexValidator:

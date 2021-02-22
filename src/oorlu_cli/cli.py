@@ -21,10 +21,9 @@ def main(ctx, long_url, limit):
     Example usage:
         oorlu www.verylongnastyurl.com
         oorlu www.only2clicks.com -l 2
-
     \b
-    For more information go to https://oor.lu API.
-    API Source code: https://github.com/adamwojt/ur_l
+    Long url max length: 500.
+    For more information go to https://oor.lu
     """
     if long_url is None:
         return click.echo(ctx.get_help())

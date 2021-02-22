@@ -21,6 +21,10 @@ from oorlu_cli.validator import ValidationError, validate_long_url
         ("https://test.com", False),
         ("https://google.com", False),
         ("www.google.com", False),
+        (
+            "http://www.reallylong.link/rll/taEx2WD5/Jpxfj2IR7R3aH0OUi7UlQ9qj764ZED6y5kvcqx4vdzQfs86/2/s0OCU4P6pJhEf_gqNyR2tpaCIiQweWxuQ8H3vC5Mew1ixdo2vwG72Ar1EsZdeV/6hUdq1ULfXSoQrHu4rZlMgqdL_euzf1FxJpaOzo_oLTpknp_FteUBqcYS1VZ5PIsW0yuhLof0gTVrMPMQkg2FLdIDJWq36OpFmS8HTE8mVsP4ptGyx16UsfZinj/GvRGiNPQwe78RN21ROpqEBEfvDOBfo_4qNoqtQfv5GvlHooYt44QPCvDLr3/uccHCh4aH43I0f9PSvLmgUfGg5v/vxqRJbMSuVwYcrgCyQ9Lb2pZG06DzNHfNKlrn4I9uXcEHgY4Yiuhj8QrrjVbiA8ukal7rgtU4jSCzZAZBYAK587tRwodLKdk5KDbzkdZl0Hm7MeS44r32in2f394344f2mif3mrfw3vbvbn",
+            True,
+        ),
     ],
 )
 def test_validate_long_url(long_url, fail_expected):
