@@ -1,14 +1,31 @@
 #!/usr/bin/env python
 
 """Tests for `oorlu_cli` package."""
-from contextlib import nullcontext
-
 import pytest
 import requests
 from click.testing import CliRunner
 
 from oorlu_cli import cli
 from oorlu_cli.validator import ValidationError, validate_long_url
+
+try:
+    from contextlib import nullcontext
+
+except ImportError:
+
+    class nullcontext(object):
+        """A context manager that does nothing at all.
+        A fallback for Python 3.7's :class:`contextlib.nullcontext` manager.
+        """
+
+        def __init__(self, enter_result=None):
+            self.enter_result = enter_result
+
+        def __enter__(self):
+            return self.enter_result
+
+        def __exit__(self, *args):
+            pass
 
 
 @pytest.mark.parametrize(
