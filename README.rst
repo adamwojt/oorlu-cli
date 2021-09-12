@@ -1,4 +1,10 @@
 =========
+IMPORTANT
+=========
+
+Unfortunately due to misunderstanding with domain provider, oor.lu domain was lost. Since the premise of the project was too have short and sweet domain I had to stop the instance and I will probably no longer provide it, I also deleted it from pip. Feel free to self host your own url shortener instance, the code is here -> https://github.com/adamwojt/ur_l . You will then be able to substitue link in this repo here -> https://github.com/adamwojt/oorlu-cli/blob/1bb5d5a65ca3113b627d1554766a3ddc8a624f4c/src/oorlu_cli/oorlu.py#L4
+
+=========
 oorlu CLI
 =========
 
